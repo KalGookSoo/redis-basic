@@ -1,173 +1,118 @@
-# service-worker-basic
-서비스 워커 기초
+# Redis 기초
+
+웹개발자를 위한 Redis 기초 학습 자료입니다. 이 저장소는 템플릿에 맞춰 각 챕터를 마크다운으로 구성하고, 확인 문제와 정답/해설을 제공합니다.
 
 ## 목차
-### [Chapter 01 서비스 워커 소개](#chapter-01-서비스-워커-소개)
 
-#### [01-1 서비스 워커란 무엇인가](chapters/01-1_what_is_service_worker.md)
-- 서비스 워커의 정의와 역할
-- 웹 개발자가 서비스 워커를 알아야 하는 이유
-  - 오프라인 웹 경험 제공
-  - 성능 최적화 및 사용자 경험 향상
-- 서비스 워커와 웹 워커의 차이점
+### Chapter 01 Redis 소개와 기본 개념
+
+#### [01-1 Redis란 무엇인가](chapters/01-1_what_is_redis.md)
+- 인메모리 데이터 스토어(In-memory Data Store)와 Key-Value 모델
+- Redis의 특징: 단일 스레드 이벤트 루프, 성능, 단순성
+- 언제 Redis를 쓰면 좋은가 (캐시, 랭킹, 세션, Pub/Sub 등)
 - 3가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-#### [01-2 서비스 워커의 특징](chapters/01-2_service_worker_characteristics.md)
-- 자바스크립트 워커 스레드
-- 프록시 역할
-- 이벤트 기반 아키텍처
-- 비동기적 특성
-- HTTPS 필수 요구사항
+#### [01-2 설치와 기본 사용법](chapters/01-2_installation_and_basics.md)
+- 설치 방법(macOS, Linux, Docker)
+- redis-server/redis-cli 기본 사용
+- 기본 명령어: PING, GET/SET/DEL/EXISTS, KEY 패턴
 - 5가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-#### [01-3 서비스 워커 지원 환경](chapters/01-3_service_worker_support.md)
-- 브라우저 호환성
-  - 데스크톱 브라우저
-  - 모바일 브라우저
-- 폴리필과 대체 방안
-- 기능 감지 방법
-- 4가지 키워드로 정리하는 핵심 포인트
-- 확인 문제
-
-### [Chapter 02 서비스 워커 생명주기](#chapter-02-서비스-워커-생명주기)
-#### [02-1 서비스 워커 등록과 설치](chapters/02-1_registration_installation.md)
-- 서비스 워커 스크립트 작성
-- 서비스 워커 등록 과정
-  - navigator.serviceWorker.register()
-  - 스코프 설정
-- 설치 이벤트 처리
-  - install 이벤트
-  - skipWaiting() 메서드
-- 디버깅 및 문제 해결
+#### [01-3 데이터 타입 개요](chapters/01-3_data_types_overview.md)
+- String, List, Set, Sorted Set(ZSet), Hash
+- 확장 타입: Bitmap, HyperLogLog, Geospatial, Stream
+- 각 타입의 대표 명령어와 사용 예
 - 5가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-#### [02-2 서비스 워커 활성화와 업데이트](chapters/02-2_activation_update.md)
-- 활성화 이벤트 처리
-  - activate 이벤트
-  - clients.claim() 메서드
-- 서비스 워커 업데이트 메커니즘
-  - 자동 업데이트
-  - 수동 업데이트
-- 버전 관리 전략
-- 4가지 키워드로 정리하는 핵심 포인트
-- 확인 문제
+### Chapter 02 데이터 구조와 핵심 동작 원리
 
-#### [02-3 서비스 워커 상태 관리](chapters/02-3_state_management.md)
-- 서비스 워커 상태 확인
-  - ServiceWorkerRegistration 객체
-  - ServiceWorker 객체
-- 상태 변경 이벤트 처리
-- 서비스 워커 제거 및 해제
-- 4가지 키워드로 정리하는 핵심 포인트
-- 확인 문제
-
-### [Chapter 03 서비스 워커와 캐싱](#chapter-03-서비스-워커와-캐싱)
-#### [03-1 Cache API 기초](chapters/03-1_cache_api_basics.md)
-- Cache API 소개
-- 캐시 스토리지 작업
-  - 캐시 열기
-  - 캐시에 응답 저장
-  - 캐시에서 응답 검색
-  - 캐시 항목 삭제
-- 캐시 스토리지 관리
-- 6가지 키워드로 정리하는 핵심 포인트
-- 확인 문제
-
-#### [03-2 캐싱 전략](chapters/03-2_caching_strategies.md)
-- 캐시 우선 전략 (Cache First)
-- 네트워크 우선 전략 (Network First)
-- 캐시 전용 전략 (Cache Only)
-- 네트워크 전용 전략 (Network Only)
-- 스테일-와일-리밸리데이트 전략 (Stale-While-Revalidate)
-- 캐시 폴백 전략 (Cache Fallback)
-- 적절한 전략 선택 방법
-- 7가지 키워드로 정리하는 핵심 포인트
-- 확인 문제
-
-#### [03-3 동적 콘텐츠 캐싱](chapters/03-3_dynamic_content_caching.md)
-- API 응답 캐싱
-- 조건부 캐싱
-- 캐시 만료 및 갱신
-- 헤더 기반 캐싱 결정
+#### [02-1 자료구조 심화와 사용 시나리오](chapters/02-1_data_structures_in_depth.md)
+- 각 자료구조의 시간복잡도와 성능 특성
+- 실제 시나리오: 랭킹, 태그, 큐, 카운팅, 세션
+- 명령어 심화: MSET/MGET, HSCAN/SSCAN/ZSCAN, ZINTER/ZUNION
 - 5가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-### [Chapter 04 서비스 워커 이벤트 처리](#chapter-04-서비스-워커-이벤트-처리)
-#### [04-1 Fetch 이벤트](chapters/04-1_fetch_events.md)
-- Fetch 이벤트 소개
-- 요청 가로채기
-- 응답 생성 및 수정
-- 조건부 응답 처리
+#### [02-2 만료와 키 스페이스 관리](chapters/02-2_expiration_and_keyspace.md)
+- 만료(Expiration)와 TTL, EXPIRE/PEXPIRE/TTL/PTTL
+- 키스페이스 이벤트와 알림(pubsub __keyspace@0__)
+- 메모리 관리 개요와 키 설계 가이드
+- 4가지 키워드로 정리하는 핵심 포인트
+- 확인 문제
+
+#### [02-3 트랜잭션, Lua, 파이프라이닝](chapters/02-3_transactions_lua_pipelining.md)
+- 트랜잭션(MULTI/EXEC/DISCARD/WATCH)
+- Lua 스크립트(EVAL/EVALSHA) 기본과 원자성 보장
+- 파이프라이닝과 네트워크 왕복 감소
+- 4가지 키워드로 정리하는 핵심 포인트
+- 확인 문제
+
+#### [02-4 메시징: Pub/Sub과 Stream](chapters/02-4_pubsub_and_streams.md)
+- Pub/Sub 기초: PUBLISH/SUBSCRIBE, 패턴 구독
+- Stream 개요: XADD/XREAD/XGROUP/XACK
+- 이벤트 처리와 백프레셔 고려
+- 4가지 키워드로 정리하는 핵심 포인트
+- 확인 문제
+
+### Chapter 03 운영 관점의 Redis
+
+#### [03-1 메모리와 성능](chapters/03-1_memory_and_performance.md)
+- 메모리 모델과 오브젝트 인코딩, lazy-free 개념
+- maxmemory와 eviction 정책(allkeys-lru 등)
+- 성능 측정과 모니터링(INFO, MONITOR, latency)
 - 5가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-#### [04-2 Push 이벤트와 알림](chapters/04-2_push_notifications.md)
-- 웹 푸시 API 소개
-- 푸시 서비스 구독
-- 푸시 메시지 수신 및 처리
-- 알림 표시 및 사용자 상호작용
-- 6가지 키워드로 정리하는 핵심 포인트
-- 확인 문제
-
-#### [04-3 백그라운드 동기화](chapters/04-3_background_sync.md)
-- 백그라운드 동기화 API
-- 동기화 이벤트 등록
-- 오프라인 데이터 처리
-- 재시도 메커니즘
+#### [03-2 고가용성과 확장성](chapters/03-2_availability_and_scaling.md)
+- 복제(Replica)와 장애 조치(Sentinel) 개요
+- Redis Cluster 개요와 샤딩 전략
+- 선택 기준과 운영 팁
 - 4가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-### [Chapter 05 프로그레시브 웹 앱(PWA)](#chapter-05-프로그레시브-웹-앱)
-#### [05-1 PWA 개요](chapters/05-1_pwa_overview.md)
-- PWA의 정의와 특징
-- PWA의 핵심 구성 요소
-  - 서비스 워커
-  - 매니페스트 파일
-  - HTTPS
-- PWA의 장점과 한계
-- 4가지 키워드로 정리하는 핵심 포인트
-- 확인 문제
-
-#### [05-2 매니페스트 파일](chapters/05-2_manifest_file.md)
-- Web App Manifest 소개
-- 매니페스트 파일 구성
-  - 기본 정보 설정
-  - 아이콘 설정
-  - 디스플레이 모드
-  - 시작 URL 및 방향
-- 홈 화면 설치 경험 최적화
+#### [03-3 보안과 운영 베스트 프랙티스](chapters/03-3_security_and_ops.md)
+- 인증과 권한: requirepass, ACL
+- 네트워크 보안과 접근 제어, 바인드/방화벽
+- 로깅, 백업/복구 전략, 장애 대응 절차
 - 5가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-#### [05-3 오프라인 경험 구현](chapters/05-3_offline_experience.md)
-- 오프라인 페이지 설계
-- 오프라인 상태 감지
-- 오프라인 데이터 저장 및 동기화
-- 사용자 경험 최적화
-- 4가지 키워드로 정리하는 핵심 포인트
-- 확인 문제
+### Chapter 04 실전 활용: Spring Framework와 Java
 
-### [Chapter 06 서비스 워커 고급 주제](#chapter-06-서비스-워커-고급-주제)
-#### [06-1 성능 최적화](chapters/06-1_performance_optimization.md)
-- 리소스 우선순위 지정
-- 프리캐싱과 런타임 캐싱
-- 네트워크 요청 최적화
-- 성능 측정 및 모니터링
+#### [04-1 Spring Cache와 Redis](chapters/04-1_spring_cache.md)
+- Spring Cache Abstraction과 @Cacheable/@CacheEvict 전략
+- 캐시 키 설계와 TTL 전략
+- 캐시 스탬피드/스노우볼 방지 아이디어
 - 5가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-#### [06-2 보안 고려사항](chapters/06-2_security_considerations.md)
-- HTTPS 요구사항
-- 서비스 워커 스코프 제한
-- 중요 데이터 처리
-- 보안 모범 사례
+#### [04-2 RedisTemplate과 ReactiveRedisTemplate](chapters/04-2_redis_template.md)
+- 직렬화(Jackson/JSON) 설정과 타입 안전성
+- 기본 CRUD, 파이프라이닝, 트랜잭션 사용 패턴
+- 실습 예: 세션 스토어, 토큰 블랙리스트
+- 5가지 키워드로 정리하는 핵심 포인트
+- 확인 문제
+
+#### [04-3 분산 락/레이트 리미팅/메시징](chapters/04-3_patterns_lock_rate_limit_messaging.md)
+- Redisson/SET NX PX 기반 분산 락 패턴
+- 레이트 리미팅 토큰 버킷 구현 개요
+- Pub/Sub 및 Stream 소비자 그룹 활용 패턴
+- 5가지 키워드로 정리하는 핵심 포인트
+- 확인 문제
+
+#### [04-4 구성과 운영 팁](chapters/04-4_configuration_and_ops_tips.md)
+- 로컬/테스트/프로덕션 프로파일 구성
+- Docker-Compose 로컬 개발, Testcontainers 통합 테스트
+- 운영 모니터링, 알림, 장애 대응 플레이북
 - 4가지 키워드로 정리하는 핵심 포인트
 - 확인 문제
 
-### [정답 및 해설](answers_and_explanations.md)
-### [기출문제 모음](quiz/questions/service_worker_quiz.md)
-### 찾아보기
+### 정답 및 해설
+- [answers_and_explanations.md](answers_and_explanations.md)
+
+### 참고
+- 본 문서는 템플릿 지침을 따르며, 각 절 파일은 templates/chapter_template.md 구조를 사용합니다.
 
