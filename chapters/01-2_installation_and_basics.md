@@ -131,11 +131,11 @@ SCAN 0 MATCH user:* COUNT 100
 5. 설정(Config): 보안(requirepass), 네트워크(bind), 내구성(appendonly/RDB)을 이해합니다.
 
 ### 확인 문제
-1. Redis를 Docker로 실행할 때 외부에서 기본 포트로 접속하려면 올바른 명령은 무엇인가?
-    - [ ] docker run -it --rm --name redis redis:latest
-    - [ ] docker run -p 8080:6379 --name redis redis:latest
-    - [ ] docker run -it --rm -p 6379:6379 --name redis redis:latest
-    - [ ] docker run --rm -p 6379 --name redis redis:latest
+1. TTL/만료에 대한 설명으로 가장 알맞은 것은?
+    - [ ] EXPIRE key 60은 밀리초 단위 TTL을 설정한다.
+    - [ ] TTL은 클라이언트 시계를 기준으로 계산된다.
+    - [ ] SET key value EX 60은 값 설정과 동시에 60초 TTL을 설정한다.
+    - [ ] TTL -2는 TTL이 무한대임을 의미한다.
 
 2. 운영 환경에서 많은 키를 조회해야 할 때 권장되는 방법은?
     - [ ] KEYS user:*
