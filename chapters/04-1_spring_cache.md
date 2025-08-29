@@ -21,7 +21,7 @@
 ```mermaid
 flowchart LR
   A[Client] --> B[Service Method]
-  B -->|@Cacheable hit| C[Return Cached]
+  B -->|"@Cacheable hit"| C[Return Cached]
   B -->|miss| D[Call Repository]
   D --> E[Result]
   E -->|put into Redis| F[(Redis Cache)]
